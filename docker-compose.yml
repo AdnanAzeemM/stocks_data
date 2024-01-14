@@ -1,0 +1,33 @@
+
+version: '3.8'
+
+services:
+  app:
+    build: .
+#    command: python manage.py migrate
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      - redis
+    environment:
+      - DJANGO_DB_HOST=db
+      - DJANGO_DB_PORT=5432
+      - DJANGO_DB_NAME=stock_database
+      - DJANGO_DB_USER=user1
+      - DJANGO_DB_PASSWORD=password
+      - DJANGO_REDIS_HOST=redis
+      - DJANGO_REDIS_PORT=6379
+
+  db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: stock_database
+      POSTGRES_USER: user1
+      POSTGRES_PASSWORD: password
+  redis:
+    image: "redis:latest"
+    ports:
+      - "6380:6379"
