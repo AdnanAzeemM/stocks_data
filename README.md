@@ -84,9 +84,9 @@ This Djangp project implement User, Stocks and transactions module.
 9. Access the Swagger documentation at http://localhost:8000/docs/.
 
 ## Unit Tests
-Run unit tests using the following command:
-pytest
-if postgres DB use for run pytest ensure have permission " ALTER USER myprojectuser CREATEDB; "
+# Run unit tests using the following command:
+   in terminal: pytest
+# if postgres DB use for run pytest ensure have permission " ALTER USER myprojectuser CREATEDB; "
 
 ##Docker
 Run command: docker-compose up  --build
